@@ -101,8 +101,6 @@ class App:
         self.args.php_binary.close()
         self.args.php_binary = self.args.php_binary.name
 
-        print(self.args)
-
 
     def get_config(self):
         """
