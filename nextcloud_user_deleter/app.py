@@ -197,6 +197,8 @@ class App:
             if not self.args.dry_run:
                 self.delete_nc_user(user)
 
+        logger.debug("script done")
+
 
 
     def delete_nc_user(self, user):

@@ -13,5 +13,13 @@ setup(
     packages=["nextcloud_user_deleter"],
     install_requires=requirements,
     zip_safe=False,
-    entry_points={"console_scripts": ["nextcloud-user-deleter=nextcloud_user_deleter.app:main"]},
+    entry_points={
+        "console_scripts": ["nextcloud-user-deleter=nextcloud_user_deleter.app:main"]
+    },
+    data_files=[
+        ('/usr/lib/systemd/system',
+            ['config/nextcloud-user-deleter.service'],
+            ['config/nextcloud-user-deleter.timer']
+        ),
+    ]
 )

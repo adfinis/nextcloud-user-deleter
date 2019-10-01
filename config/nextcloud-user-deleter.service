@@ -1,0 +1,11 @@
+[Unit]
+Description=Nextcloud permanent user deleter
+
+[Service]
+Type=oneshot
+User=apache
+Group=apache
+ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=/var/www/html/nextcloud
+
+[Install]
+WantedBy=multi-user.target
