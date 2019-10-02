@@ -1,12 +1,12 @@
 # Nextcloud user cleanup
 
-If a user is deleted in LDAP, the user is marked as deleted (remnant table) in Nextcloud after running the [LDAP clean-up job](https://docs.nextcloud.com/server/16/admin_manual/configuration_user/user_auth_ldap_cleanup.html) (user auth ldap cleanup), but the data and the user remain intact.
+Nextcloud allows to delete users via the API (e.g., using `occ user:delete`), but from Nextcloud's point of view they need to be deleted in LDAP first. If a user is deleted in LDAP, the user is marked as deleted in Nextcloud after the [LDAP clean-up job](https://docs.nextcloud.com/server/16/admin_manual/configuration_user/user_auth_ldap_cleanup.html) (user auth ldap cleanup), but the data and the user in Nextclouds filesystem and database remain intact (remnant table, `occ ldap:show-remnants`).
 
-Nextcloud offers a possibility to delete users via the API, but from Nextcloud's point of view they are no longer allowed to be in LDAP at this time. The LDAP synchronization of users who no longer exist runs in the background and checks only 50 users at a time. Therefore it is not predictable when Nextcloud will look at a user as effectively deleted (LDAP remnant Table).
+LDAP users that do not exist anymore are recognized by the clean-up job. The job is running in the background and examines 50 users at a time. Therefore, the exact time when Nextcloud will effectively see a user as "deleted" (LDAP remnant table) is not predictable .
 
-This Script checks the MySQL-Table and permanently deletes the users if they are marked as deleted.
+This Script checks the MySQL-Table `oc_preferences` for remnant LDAP users and permanently deletes the users in Nextclouds database.
 
-`setup.py` Installs a (disabled per default) Systemd-Timer which runs every Day at 04:00.
+`setup.py` installs a Systemd-Timer which runs at 04:00 daily, but is disabled per default.
 
 ## Installation
 
