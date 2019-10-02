@@ -1,0 +1,11 @@
+[Unit]
+Description=Nextcloud permanent user cleanup
+
+[Service]
+Type=oneshot
+User=apache
+Group=apache
+ExecStart=/usr/bin/nextcloud-user-cleanup --nextcloud-root=/var/www/html/nextcloud
+
+[Install]
+WantedBy=multi-user.target
