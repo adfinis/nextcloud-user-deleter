@@ -18,8 +18,8 @@ setup(
     },
     data_files=[
         ('/usr/lib/systemd/system',
-            ['config/nextcloud-user-deleter.service'],
-            ['config/nextcloud-user-deleter.timer']
+            ['config/nextcloud-user-deleter.service',
+             'config/nextcloud-user-deleter.timer']
         ),
     ]
 )
