@@ -1,6 +1,6 @@
 # Nextcloud user cleanup
 
-If an user is deleted in LDAP, the user is marked as deleted (remnant table) in Nextcloud after running the LDAP clean-up job (user auth ldap cleanup), but the data and the user remain intact.
+If a user is deleted in LDAP, the user is marked as deleted (remnant table) in Nextcloud after running the [LDAP clean-up job](https://docs.nextcloud.com/server/16/admin_manual/configuration_user/user_auth_ldap_cleanup.html) (user auth ldap cleanup), but the data and the user remain intact.
 
 Nextcloud offers a possibility to delete users via the API, but from Nextcloud's point of view they are no longer allowed to be in LDAP at this time. The LDAP synchronization of users who no longer exist runs in the background and checks only 50 users at a time. Therefore it is not predictable when Nextcloud will look at a user as effectively deleted (LDAP remnant Table).
 
