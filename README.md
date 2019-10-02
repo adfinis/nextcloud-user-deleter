@@ -22,21 +22,21 @@ yum install mysql-connector-python python-setuptools
 ```
 - Install the Script:
 ```
-git clone https://github.com/adfinis-sygroup/nextcloud-user-deleter
-cd nextcloud-user-deleter
+git clone https://github.com/adfinis-sygroup/nextcloud-user-cleanup
+cd nextcloud-user-cleanup
 python setup.py install
 ```
 
-### Activate Nextcloud User deleter timer
+### Activate Nextcloud User cleanup timer
 
 ```
-systemctl enable nextcloud-user-deleter.timer
+systemctl enable nextcloud-user-cleanup.timer
 ```
 
 ## Usage
 
 ```
-nextcloud-user-deleter [-h] --nextcloud-root NEXTCLOUD_ROOT
+nextcloud-user-cleanup [-h] --nextcloud-root NEXTCLOUD_ROOT
                               [--php-binary PHP_BINARY] [--dry-run] [--debug]
 ```
 - `--nextcloud-root` is the root directory where nextcloud is installed. Normally this is `/var/www/html/nextcloud`
