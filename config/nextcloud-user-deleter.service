@@ -1,5 +1,6 @@
 [Unit]
 Description=Nextcloud permanent user deleter
+Documentation=https://github.com/adfinis-sygroup/nextcloud-user-deleter
 
 [Service]
 Type=oneshot
