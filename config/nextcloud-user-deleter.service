@@ -7,7 +7,9 @@ Type=oneshot
 User=apache
 Group=apache
 Environment="NEXTCLOUD_ROOT=/var/www/html/nextcloud"
-ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=${NEXTCLOUD_ROOT}
+Environment="PHP_BINARY=/opt/remi/php72/root/bin/php"
+ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=${NEXTCLOUD_ROOT} \
+                                          --php-binary=${PHP_BINARY}
 
 [Install]
 WantedBy=multi-user.target
