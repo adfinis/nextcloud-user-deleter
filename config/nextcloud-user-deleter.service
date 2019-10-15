@@ -6,7 +6,8 @@ Documentation=https://github.com/adfinis-sygroup/nextcloud-user-deleter
 Type=oneshot
 User=apache
 Group=apache
-ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=/var/www/html/nextcloud
+Environment="NEXTCLOUD_ROOT=/var/www/html/nextcloud"
+ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=${NEXTCLOUD_ROOT}
 
 [Install]
 WantedBy=multi-user.target
