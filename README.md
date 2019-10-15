@@ -43,3 +43,11 @@ nextcloud-user-deleter [-h] --nextcloud-root NEXTCLOUD_ROOT
 - `--php-binary` is the binary to run the occ command with. Defaults to `/opt/remi/php72/root/bin/php`
 - `--debug` is a flag to display debug output
 - `--dry-run` if this flag is specified, only show what the script would delete instead of actually deleting the users
+
+## License
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, version 3 of the License.
+
+## Copyright
+Copyright (c) 2019 [Adfinis SyGroup AG](https://adfinis-sygroup.ch)
