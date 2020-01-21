@@ -83,7 +83,7 @@ class App:
         )
         parser.add_argument(
             "--php-binary",
-            default="/opt/remi/php72/root/bin/php",
+            default="/opt/rh/rh-php72/root/usr/bin/php",
             type=argparse.FileType('r'),
         )
         parser.add_argument(
