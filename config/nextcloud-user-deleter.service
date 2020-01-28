@@ -1,11 +1,15 @@
 [Unit]
 Description=Nextcloud permanent user deleter
+Documentation=https://github.com/adfinis-sygroup/nextcloud-user-deleter
 
 [Service]
 Type=oneshot
 User=apache
 Group=apache
-ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=/var/www/html/nextcloud
+Environment="NEXTCLOUD_ROOT=/var/www/html/nextcloud"
+Environment="PHP_BINARY=/opt/remi/php72/root/bin/php"
+ExecStart=/usr/bin/nextcloud-user-deleter --nextcloud-root=${NEXTCLOUD_ROOT} \
+                                          --php-binary=${PHP_BINARY}
 
 [Install]
 WantedBy=multi-user.target
